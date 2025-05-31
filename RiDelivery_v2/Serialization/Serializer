@@ -1,0 +1,37 @@
+using System.Text.Json;
+using System.IO;
+using System.Collections.Generic;
+
+namespace RiDelivery_v2.Serialization
+{
+    public static class Serializer
+    {
+        public static void Serializer<T>(T obj, string filePath)
+        {
+            // Remove when Check Directory Class is implemented
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
+
+            List<T> data;
+
+            // If File exist then extracting and updating List, else creating New List
+            if (File.Exists(filePath))
+            {
+                string existingJson = File.ReadAllText(filePath);
+                data = JsonSerializer.Deserialize<List<T>>(existingJson) ?? new List<T>();
+            }
+            else
+            {
+                data = new List<T>();
+            }
+
+            // Add the new object to the list
+            data.Add(obj);
+
+            // Serialize the updated list with indentation
+            string updatedJson = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+
+            // Overwrite the file with the new JSON content
+            File.WriteAllText(filePath, updatedJson);
+        }
+    }
+}

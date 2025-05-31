@@ -1,0 +1,27 @@
+### Visual Studio (VS IDE) ###
+.vs/             # VS workspace settings
+bin/             # Compiled binaries
+obj/             # Intermediate build files
+*.user           # User-specific settings
+*.suo            # Solution options
+*.cache          # IntelliSense cache
+
+### VS Code ###
+.vscode/         # VS Code settings
+!.vscode/settings.json # Optional: Keep shared settings
+*.code-workspace # Workspace files
+
+### OS-Specific ###
+.DS_Store        # Mac metadata
+Thumbs.db        # Windows thumbnail cache
+
+### Compiled Files ###
+*.exe
+*.dll
+*.pdb
+*.so
+*.out
+
+### Dependency Folders ###
+node_modules/    # For JavaScript/TypeScript
+packages/        # NuGet/NPM packages

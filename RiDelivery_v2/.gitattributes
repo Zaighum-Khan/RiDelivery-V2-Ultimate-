@@ -1,0 +1,6 @@
+# Force consistent line endings (LF for all platforms)
+* text=auto eol=lf
+
+# Ensure Windows doesn't mess with these files
+*.sh text eol=lf
+*.cmd text eol=crlf
